@@ -26,7 +26,7 @@ public class JavassistExample4 {
 		ClassPool pool = ClassPool.getDefault();
 		
 		// 创建类
-		CtClass cc = pool.makeClass("io.github.hiwepy.javassist.DynamicHelloWorld");
+		CtClass cc = pool.makeClass("io.github.easy4j.javassist.DynamicHelloWorld");
 		
 		// 创建方法
 		CtClass ccStringType = pool.get("java.lang.String");
