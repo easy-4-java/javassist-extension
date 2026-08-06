@@ -193,9 +193,7 @@
                     <configuration>
                         <skip>true</skip>
                         <skipTests>true</skipTests>
-                        <forkMode>once</forkMode>
-                        <argLine>-Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m
-							-Dfile.encoding=UTF-8</argLine>
+                        <argLine>-Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m -Dfile.encoding=UTF-8</argLine>
                         <additionalClasspathElements>
                             <additionalClasspathElement>${basedir}/target/test-classes</additionalClasspathElement>
                         </additionalClasspathElements>
@@ -513,7 +511,7 @@
         <javassist.version>3.30.2-GA</javassist.version>
         <!-- Dependency versions -->
         <junit.version>4.13.2</junit.version>
-        <junit-jupiter.version>5.10.3</junit-jupiter.version>
+        <junit-jupiter.version>6.1.0</junit-jupiter.version>
         <slf4j.version>2.0.18</slf4j.version>
     </properties>
 
