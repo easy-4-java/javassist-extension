@@ -33,7 +33,7 @@ public class JavassistExample3 {
 		CtClass declaring = pool.makeInterface("io.github.hiwepy.javassist.IDynamicHelloWorld", pool.getCtClass("java.lang.Cloneable"));
 		
 		
-		//pool.makeInterface("io.github.hiwepy.javassist.DynamicHelloWorld");
+		//pool.makeInterface("io.github.easy4j.javassist.DynamicHelloWorld");
 		//cc.setSuperclass(pool.getCtClass("java.lang.Cloneable"));
 		
 		ClassFile ccFile = declaring.getClassFile();
