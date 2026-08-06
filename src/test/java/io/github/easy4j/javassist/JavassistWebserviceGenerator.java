@@ -102,7 +102,7 @@ public class JavassistWebserviceGenerator {
 		ClassPool pool = ClassPool.getDefault();
 		
 		// 创建类
-		CtClass declaring = pool.makeInterface("io.github.hiwepy.javassist.IDynamicHelloWorld");
+		CtClass declaring = pool.makeInterface("io.github.easy4j.javassist.IDynamicHelloWorld");
 		//declaring.setSuperclass(pool.getCtClass("java.lang.Cloneable"));
 		
 		ClassFile ccFile = declaring.getClassFile();
