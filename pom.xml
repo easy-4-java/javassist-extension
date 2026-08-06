@@ -512,7 +512,7 @@
         <javassist.version>3.30.2-GA</javassist.version>
         <!-- Dependency versions -->
         <junit.version>4.13.2</junit.version>
-        <junit-jupiter.version>5.10.3</junit-jupiter.version>
+        <junit-jupiter.version>5.11.4</junit-jupiter.version>
         <slf4j.version>2.0.18</slf4j.version>
     </properties>
 
