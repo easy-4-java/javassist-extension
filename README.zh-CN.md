@@ -4,7 +4,9 @@
 
 [![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/javassist-plus) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 
-> **项目状态**：`feature/3.0.x` 版本线维护中（JDK 21）。制品尚未发布到 Maven Central，通过项目私服与 GitHub Releases 分发。
+javassist-plus 是在 Javassist（3.30.2-GA）之上的工具层，让字节码操作更方便：动态代理创建、运行时类/字段/方法生成、注解复制与解析、接口简化以及 ClassPool 管理。
+
+> **项目状态**：`feature/3.0.x` 版本线维护中（JDK 8）。制品尚未发布到 Maven Central，通过项目私服与 GitHub Releases 分发。
 
 ## 目录
 
