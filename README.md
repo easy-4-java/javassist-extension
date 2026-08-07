@@ -6,7 +6,7 @@
 
 javassist-extension is a utility layer on top of Javassist (3.30.2-GA) that makes bytecode manipulation more convenient:
 
-> **Status**: maintained on the `feature/2.0.x` line (JDK 8). Artifacts are not yet published to Maven Central; they are distributed through the project's private repository and GitHub Releases.
+> **Status**: maintained on the `feature/2.0.x` line (JDK 17). Artifacts are not yet published to Maven Central; they are distributed through the project's private repository and GitHub Releases.
 
 ## Table of Contents
 
@@ -113,14 +113,14 @@ Single-module jar. Package layout under `io.github.easy4j.javassist`:
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>javassist-extension</artifactId>
-    <version>2.0.x.x.20260630-SNAPSHOT</version>
+    <version>2.0.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
 
 Gradle:
 
 ```groovy
-implementation 'io.github.easy4j:javassist-extension:2.0.x.x.20260630-SNAPSHOT'
+implementation 'io.github.easy4j:javassist-extension:2.0.x.20260630-SNAPSHOT'
 ```
 
 The snapshot is served from the project's private repository (see `distributionManagement` in the pom). No Maven Central release is available yet.
@@ -199,7 +199,7 @@ Three parallel version lines, each bound to a JDK baseline:
 | `feature/2.0.x` | 17 | `2.0.x.*` | Maintained in parallel |
 | `feature/3.0.x` | 21 | `3.0.x.*` | Maintained in parallel |
 
-Snapshots on this branch are versioned `2.0.x.x.20260630-SNAPSHOT`.
+Snapshots on this branch are versioned `2.0.x.20260630-SNAPSHOT`.
 
 ## 11. Contributing & License
 
