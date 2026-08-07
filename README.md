@@ -4,7 +4,9 @@
 
 [![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/easy-4-java/javassist-plus) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 
-> **Status**: maintained on the `feature/2.0.x` line (JDK 17). Artifacts are not yet published to Maven Central; they are distributed through the project's private repository and GitHub Releases.
+javassist-plus is a utility layer on top of Javassist (3.30.2-GA) that makes bytecode manipulation more convenient:
+
+> **Status**: maintained on the `feature/2.0.x` line (JDK 8). Artifacts are not yet published to Maven Central; they are distributed through the project's private repository and GitHub Releases.
 
 ## Table of Contents
 
