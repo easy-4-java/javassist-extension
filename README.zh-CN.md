@@ -1,10 +1,10 @@
-# javassist-plus
+# javassist-extension
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-[![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/javassist-plus) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
+[![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/javassist-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 
-javassist-plus 是在 Javassist（3.30.2-GA）之上的工具层，让字节码操作更方便：动态代理创建、运行时类/字段/方法生成、注解复制与解析、接口简化以及 ClassPool 管理。
+javassist-extension 是在 Javassist（3.30.2-GA）之上的工具层，让字节码操作更方便：动态代理创建、运行时类/字段/方法生成、注解复制与解析、接口简化以及 ClassPool 管理。
 
 > **项目状态**：`feature/3.0.x` 版本线维护中（JDK 8）。制品尚未发布到 Maven Central，通过项目私服与 GitHub Releases 分发。
 
@@ -24,7 +24,7 @@ javassist-plus 是在 Javassist（3.30.2-GA）之上的工具层，让字节码�
 
 ## 1. 项目概述
 
-`javassist-plus` 是在 [Javassist](https://www.javassist.org/)（3.30.2-GA）之上的工具层，让字节码操作更方便：动态代理创建、运行时类/字段/方法生成、注解复制与解析、接口简化以及 `ClassPool` 管理。
+`javassist-extension` 是在 [Javassist](https://www.javassist.org/)（3.30.2-GA）之上的工具层，让字节码操作更方便：动态代理创建、运行时类/字段/方法生成、注解复制与解析、接口简化以及 `ClassPool` 管理。
 
 是什么：
 
@@ -112,7 +112,7 @@ io.github.easy4j.javassist
 ```xml
 <dependency>
     <groupId>io.github.easy4j</groupId>
-    <artifactId>javassist-plus</artifactId>
+    <artifactId>javassist-extension</artifactId>
     <version>3.0.x.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
@@ -120,7 +120,7 @@ io.github.easy4j.javassist
 Gradle：
 
 ```groovy
-implementation 'io.github.easy4j:javassist-plus:3.0.x.x.20260630-SNAPSHOT'
+implementation 'io.github.easy4j:javassist-extension:3.0.x.x.20260630-SNAPSHOT'
 ```
 
 快照版本由项目私服提供（见 pom 中 `distributionManagement`）。尚未发布 Maven Central 正式版。

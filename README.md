@@ -1,10 +1,10 @@
-# javassist-plus
+# javassist-extension
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-[![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/javassist-plus) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
+[![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/javassist-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 
-javassist-plus is a utility layer on top of Javassist (3.30.2-GA) that makes bytecode manipulation more convenient:
+javassist-extension is a utility layer on top of Javassist (3.30.2-GA) that makes bytecode manipulation more convenient:
 
 > **Status**: maintained on the `feature/3.0.x` line (JDK 8). Artifacts are not yet published to Maven Central; they are distributed through the project's private repository and GitHub Releases.
 
@@ -24,7 +24,7 @@ javassist-plus is a utility layer on top of Javassist (3.30.2-GA) that makes byt
 
 ## 1. Project Overview
 
-`javassist-plus` is a utility layer on top of [Javassist](https://www.javassist.org/) (3.30.2-GA) that makes bytecode manipulation more convenient: dynamic proxy creation, programmatic class/field/method generation, annotation copying and inspection, interface simplification, and `ClassPool` management.
+`javassist-extension` is a utility layer on top of [Javassist](https://www.javassist.org/) (3.30.2-GA) that makes bytecode manipulation more convenient: dynamic proxy creation, programmatic class/field/method generation, annotation copying and inspection, interface simplification, and `ClassPool` management.
 
 What it is:
 
@@ -112,7 +112,7 @@ Single-module jar. Package layout under `io.github.easy4j.javassist`:
 ```xml
 <dependency>
     <groupId>io.github.easy4j</groupId>
-    <artifactId>javassist-plus</artifactId>
+    <artifactId>javassist-extension</artifactId>
     <version>3.0.x.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
@@ -120,7 +120,7 @@ Single-module jar. Package layout under `io.github.easy4j.javassist`:
 Gradle:
 
 ```groovy
-implementation 'io.github.easy4j:javassist-plus:3.0.x.x.20260630-SNAPSHOT'
+implementation 'io.github.easy4j:javassist-extension:3.0.x.x.20260630-SNAPSHOT'
 ```
 
 The snapshot is served from the project's private repository (see `distributionManagement` in the pom). No Maven Central release is available yet.
