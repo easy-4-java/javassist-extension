@@ -4,6 +4,8 @@
 
 [![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/easy-4-java/javassist-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 
+javassist-extension 是在 Javassist（3.30.2-GA）之上的工具层，让字节码操作更方便：动态代理创建、运行时类/字段/方法生成、注解复制与解析、接口简化以及 ClassPool 管理。
+
 > **项目状态**：`feature/2.0.x` 版本线维护中（JDK 17）。制品尚未发布到 Maven Central，通过项目私服与 GitHub Releases 分发。
 
 ## 目录
@@ -111,14 +113,14 @@ io.github.easy4j.javassist
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>javassist-extension</artifactId>
-    <version>2.0.x.x.20260630-SNAPSHOT</version>
+    <version>2.0.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
 
 Gradle：
 
 ```groovy
-implementation 'io.github.easy4j:javassist-extension:2.0.x.x.20260630-SNAPSHOT'
+implementation 'io.github.easy4j:javassist-extension:2.0.x.20260630-SNAPSHOT'
 ```
 
 快照版本由项目私服提供（见 pom 中 `distributionManagement`）。尚未发布 Maven Central 正式版。
@@ -197,7 +199,7 @@ Javassist 概念背景（本库包装的基础）：Javassist 在 Java 语言层
 | `feature/2.0.x` | 17 | `2.0.x.*` | 并行维护 |
 | `feature/3.0.x` | 21 | `3.0.x.*` | 并行维护 |
 
-本分支快照版本为 `2.0.x.x.20260630-SNAPSHOT`。
+本分支快照版本为 `2.0.x.20260630-SNAPSHOT`。
 
 ## 11. 贡献与许可
 
