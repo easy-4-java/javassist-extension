@@ -508,7 +508,7 @@
         <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
         <maven-nexus-staging-plugin.version>1.7.0</maven-nexus-staging-plugin.version>
         <commons-lang3.version>3.20.0</commons-lang3.version>
-        <javassist.version>3.30.2-GA</javassist.version>
+        <javassist.version>3.32.0-GA</javassist.version>
         <!-- Dependency versions -->
         <junit.version>4.13.2</junit.version>
         <junit-jupiter.version>6.1.0</junit-jupiter.version>
