@@ -31,6 +31,14 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Utility class for class loading operations including thread context class loader
+ * resolution, primitive type handling, and classpath URL discovery from manifests.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see Class#forName(String, boolean, ClassLoader)
+ */
 public class ClassHelper {
 
 	private static Logger logger = LoggerFactory.getLogger(ClassHelper.class.getName());
@@ -75,16 +83,37 @@ public class ClassHelper {
         }
     }
 
+    /**
+     * Loads a class using the current thread's context class loader.
+     *
+     * @param name the fully-qualified class name
+     * @return the loaded class
+     * @throws ClassNotFoundException if the class cannot be found
+     */
     public static Class<?> forNameWithThreadContextClassLoader(String name)
             throws ClassNotFoundException {
         return forName(name, Thread.currentThread().getContextClassLoader());
     }
 
+    /**
+     * Loads a class using the caller class's class loader.
+     *
+     * @param name   the fully-qualified class name
+     * @param caller the caller class whose class loader will be used
+     * @return the loaded class
+     * @throws ClassNotFoundException if the class cannot be found
+     */
     public static Class<?> forNameWithCallerClassLoader(String name, Class<?> caller)
             throws ClassNotFoundException {
         return forName(name, caller.getClassLoader());
     }
 
+    /**
+     * Returns the class loader of the given caller class.
+     *
+     * @param caller the caller class
+     * @return the class loader
+     */
     public static ClassLoader getCallerClassLoader(Class<?> caller) {
         return caller.getClassLoader();
     }
@@ -255,6 +284,13 @@ public class ClassHelper {
 	}
 
 
+    /**
+     * Returns a short string representation of the given object in the form
+     * {@code SimpleName@hashCode}.
+     *
+     * @param obj the object (may be {@code null})
+     * @return a short descriptive string, or {@code "null"} if the object is {@code null}
+     */
     public static String toShortString(Object obj) {
         if (obj == null) {
             return "null";

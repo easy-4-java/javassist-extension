@@ -45,7 +45,14 @@ import javassist.NotFoundException;
 
 
 /**
- * ClassGenerator
+ * Fluent builder for dynamically generating Java classes using Javassist bytecode manipulation.
+ *
+ * <p>Supports adding interfaces, fields, methods, and constructors to a new class at runtime.
+ * Generated classes are tagged with the {@link DC} marker interface for identification.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see javassist.ClassPool
  */
 public final class ClassGenerator {
     private static final AtomicLong CLASS_NAME_COUNTER = new AtomicLong(0);
