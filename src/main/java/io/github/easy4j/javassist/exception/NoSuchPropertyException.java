@@ -17,9 +17,12 @@
 package io.github.easy4j.javassist.exception;
 
 /**
- * NoSuchPropertyException.
+ * Exception thrown when a requested property is not found on a wrapped class.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see io.github.easy4j.javassist.bytecode.Wrapper
  */
-
 public class NoSuchPropertyException extends RuntimeException {
     private static final long serialVersionUID = -2725364246023268766L;
 

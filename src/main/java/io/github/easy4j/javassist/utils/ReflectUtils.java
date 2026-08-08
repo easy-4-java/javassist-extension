@@ -46,7 +46,16 @@ import javassist.CtMethod;
 import javassist.NotFoundException;
 
 /**
- * ReflectUtils
+ * Utility class for reflection operations including class descriptor generation,
+ * method signature construction, and bean property introspection.
+ *
+ * <p>Provides methods for converting between JVM type descriptors and Java class names,
+ * finding methods and constructors by signature, and inspecting bean properties.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see java.lang.reflect.Method
+ * @see java.lang.reflect.Constructor
  */
 public final class ReflectUtils {
 

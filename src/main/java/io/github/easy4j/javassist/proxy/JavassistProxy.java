@@ -23,22 +23,49 @@ import javassist.util.proxy.Proxy;
 import javassist.util.proxy.ProxyFactory;
 
 /**
- * http://blog.csdn.net/mingxin95/article/details/51810499
+ * Factory for creating Javassist-based dynamic proxies.
+ *
+ * <p>This class provides static helper methods that use {@link javassist.util.proxy.ProxyFactory}
+ * to generate proxy subclasses at runtime. Each proxy intercepts method calls through a
+ * {@link javassist.util.proxy.MethodHandler}, enabling AOP-style cross-cutting concerns
+ * such as transaction management and logging.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see javassist.util.proxy.ProxyFactory
+ * @see javassist.util.proxy.MethodHandler
  */
 @SuppressWarnings({ "unchecked" })
 public class JavassistProxy {
 
 	// 代理工厂
 	private static ProxyFactory proxyFactory = new ProxyFactory();
-	
-	/*
-	 * 要代理的对象
+
+	/**
+	 * Creates a proxy instance that wraps the given target object.
+	 *
+	 * @param <T>    the type of the target object
+	 * @param target the object to proxy
+	 * @return a proxy instance that delegates to the target with default transaction interception
+	 * @throws InstantiationException if the proxy class cannot be instantiated
+	 * @throws IllegalAccessException if the proxy class or its constructor is not accessible
 	 */
 	public static <T> T getProxy(T target) throws InstantiationException, IllegalAccessException {
 		return (T) getProxy(target.getClass());
 	}
 
-	
+	/**
+	 * Creates a proxy instance for the given class with default method interception.
+	 *
+	 * <p>The default handler prints method invocation details and simulates
+	 * transaction begin/commit around each call.
+	 *
+	 * @param <T>        the type of the proxy
+	 * @param proxyClass the class to create a proxy for
+	 * @return a proxy instance with default interception behavior
+	 * @throws InstantiationException if the proxy class cannot be instantiated
+	 * @throws IllegalAccessException if the proxy class or its constructor is not accessible
+	 */
 	public static <T> T getProxy(Class<T> proxyClass) throws InstantiationException, IllegalAccessException {
 		/*
 		 * 定义一个拦截器。在调用目标方法时，Javassist会回调MethodHandler接口方法拦截， 来实现你自己的代理逻辑，
@@ -69,8 +96,15 @@ public class JavassistProxy {
 		return (T) getProxy(proxyClass, handler);
 	}
 	
-	/*
-	 * 要代理的对象class
+	/**
+	 * Creates a proxy instance for the given class with the specified method handler.
+	 *
+	 * @param <T>        the type of the proxy
+	 * @param proxyClass the class to create a proxy for
+	 * @param handler    the {@link MethodHandler} to intercept method calls
+	 * @return a proxy instance that delegates method calls to the given handler
+	 * @throws InstantiationException if the proxy class cannot be instantiated
+	 * @throws IllegalAccessException if the proxy class or its constructor is not accessible
 	 */
 	public static <T> T getProxy(Class<T> proxyClass, MethodHandler handler) throws InstantiationException, IllegalAccessException {
 

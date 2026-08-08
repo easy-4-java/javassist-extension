@@ -57,17 +57,28 @@ import javassist.bytecode.annotation.ShortMemberValue;
 import javassist.bytecode.annotation.StringMemberValue;
 
 /**
- * 
+ * Utility class for Javassist bytecode manipulation operations.
+ *
+ * <p>Provides static helper methods for creating, cloning, and copying Javassist
+ * annotations, member values, and for resolving {@link CtClass}, {@link CtMethod},
+ * and method parameter names from Java classes or reflection objects.
+ *
  * @author [@Loong Wan](https://github.com/loong10k)
- * http://blog.csdn.net/youaremoon/article/details/50766972
- * https://my.oschina.net/GameKing/blog/794580
- * http://www.codeweblog.com/%E5%85%B3%E4%BA%8Ejavassist-notfoundexception/
+ * @since 3.0.0
+ * @see javassist.CtClass
+ * @see javassist.bytecode.annotation.Annotation
  */
 public class JavassistUtils {
 
 	protected static Logger LOG = LoggerFactory.getLogger(JavassistUtils.class);
 	protected static ConcurrentMap<String, Class<?>> COMPLIED_CLASSES = new ConcurrentHashMap<String, Class<?>>();
 	
+	/**
+	 * Adds a visible annotation to the given class.
+	 *
+	 * @param clazz      the target {@link CtClass}
+	 * @param annotation the annotation to add
+	 */
 	public static void addClassAnnotation(CtClass clazz, javassist.bytecode.annotation.Annotation annotation) {
 		ClassFile classFile = clazz.getClassFile();
 		AnnotationsAttribute attribute = getClassAnnotationsAttribute(clazz);
@@ -75,6 +86,12 @@ public class JavassistUtils {
 		classFile.addAttribute(attribute);
 	}
 
+	/**
+	 * Adds a visible annotation to the given field.
+	 *
+	 * @param field      the target {@link CtField}
+	 * @param annotation the annotation to add
+	 */
 	public static void addFieldAnnotation(CtField field, javassist.bytecode.annotation.Annotation annotation) {
 		FieldInfo fieldInfo = field.getFieldInfo();
 		AnnotationsAttribute attribute = getFieldAnnotationsAttribute(field);
@@ -82,6 +99,12 @@ public class JavassistUtils {
 		fieldInfo.addAttribute(attribute);
 	}
 
+	/**
+	 * Adds a generic signature attribute to the given field.
+	 *
+	 * @param field     the target {@link CtField}
+	 * @param signature the generic signature string
+	 */
 	public static void addSignature(CtField field, String signature) {
 		FieldInfo fieldInfo = field.getFieldInfo();
 		ConstPool constPool = fieldInfo.getConstPool();
@@ -89,6 +112,12 @@ public class JavassistUtils {
 		fieldInfo.addAttribute(signatureAttribute);
 	}
 
+	/**
+	 * Adds a generic signature attribute to the given method.
+	 *
+	 * @param method    the target {@link CtMethod}
+	 * @param signature the generic signature string
+	 */
 	public static void addSignature(CtMethod method, String signature) {
 		MethodInfo methodInfo = method.getMethodInfo();
 		ConstPool constPool = methodInfo.getConstPool();
@@ -127,6 +156,16 @@ public class JavassistUtils {
 		return ret;
 	}
 
+	/**
+	 * Copies all visible annotations from the given attribute into a new attribute
+	 * targeting the specified constant pool.
+	 *
+	 * @param annotations the source annotations attribute (may be {@code null})
+	 * @param constPool   the target constant pool
+	 * @return a new {@link AnnotationsAttribute} with cloned annotations, or {@code null}
+	 *         if the input is {@code null}
+	 * @throws NotFoundException if an annotation type cannot be resolved
+	 */
 	public static AnnotationsAttribute copyAnnotations(AnnotationsAttribute annotations, ConstPool constPool)
 			throws NotFoundException {
 		if (annotations != null) {
@@ -146,6 +185,16 @@ public class JavassistUtils {
 		return null;
 	}
 
+	/**
+	 * Copies parameter annotations starting from the given index into a new attribute.
+	 *
+	 * @param parameterAnnotations the source parameter annotations attribute (may be {@code null})
+	 * @param constPool            the target constant pool
+	 * @param fromIndex            the index of the first parameter annotation to copy
+	 * @return a new {@link ParameterAnnotationsAttribute}, or {@code null} if the input
+	 *         is {@code null} or contains no annotations from the given index
+	 * @throws NotFoundException if an annotation type cannot be resolved
+	 */
 	public static ParameterAnnotationsAttribute copyParameterAnnotations(
 			ParameterAnnotationsAttribute parameterAnnotations, ConstPool constPool, int fromIndex)
 			throws NotFoundException {
@@ -180,6 +229,14 @@ public class JavassistUtils {
 		return null;
 	}
 
+	/**
+	 * Creates a Javassist {@link Annotation} from a Java annotation instance.
+	 *
+	 * @param annotation the source Java annotation
+	 * @param cp         the target constant pool
+	 * @return the corresponding Javassist annotation
+	 * @throws RuntimeException if annotation member values cannot be created
+	 */
 	public static Annotation createAnnotation(java.lang.annotation.Annotation annotation, ConstPool cp) {
 		try {
 			Annotation a = new Annotation(annotation.annotationType().getName(), cp);
@@ -356,6 +413,12 @@ public class JavassistUtils {
 		throw new RuntimeException("Invalid array type " + type + " value: " + val);
 	}
 	
+	/**
+	 * Gets or creates the visible annotations attribute for the given method.
+	 *
+	 * @param ctMethod the target method
+	 * @return the annotations attribute (never {@code null})
+	 */
 	public static AnnotationsAttribute getAnnotationsAttribute(final CtMethod ctMethod) {
 		MethodInfo methodInfo = ctMethod.getMethodInfo();
 		AnnotationsAttribute attribute = (AnnotationsAttribute) methodInfo.getAttribute(AnnotationsAttribute.visibleTag);
@@ -365,6 +428,12 @@ public class JavassistUtils {
 		return attribute;
 	}
 	
+	/**
+	 * Gets or creates the visible annotations attribute for the given class.
+	 *
+	 * @param clazz the target class
+	 * @return the annotations attribute (never {@code null})
+	 */
 	public static AnnotationsAttribute getClassAnnotationsAttribute(final CtClass clazz) {
 		ClassFile classFile = clazz.getClassFile();
 		AnnotationsAttribute attribute = (AnnotationsAttribute) classFile.getAttribute(AnnotationsAttribute.visibleTag);
@@ -385,6 +454,13 @@ public class JavassistUtils {
 		return getCtClass(clazz.getName());
 	}
 	
+	/**
+	 * Resolves a {@link CtClass} by its fully-qualified class name.
+	 *
+	 * @param classname the fully-qualified class name
+	 * @return the corresponding {@link CtClass}
+	 * @throws NotFoundException if the class cannot be resolved or created
+	 */
 	public static CtClass getCtClass(String classname) throws NotFoundException {
 		// 用于取得字节码类，必须在当前的classpath中，使用全称
 		ClassPool pool = ClassPoolFactory.getDefaultPool();
@@ -505,12 +581,29 @@ public class JavassistUtils {
 		return cc.getDeclaredMethod(method, paramCtTypes);
 	}
 	
+	/**
+	 * Resolves a {@link CtMethod} by class name and method name.
+	 *
+	 * @param classname the fully-qualified class name
+	 * @param method    the method name
+	 * @return the corresponding {@link CtMethod}
+	 * @throws NotFoundException if the class or method cannot be found
+	 */
 	public static CtMethod getCtMethod(String classname, String method) throws NotFoundException {
 		// 用于取得字节码类，必须在当前的classpath中，使用全称
 		ClassPool pool = ClassPoolFactory.getDefaultPool();
 		return pool.getMethod(classname, method);
 	}
 	
+	/**
+	 * Resolves a {@link CtMethod} by class name, method name, and parameter types.
+	 *
+	 * @param classname  the fully-qualified class name
+	 * @param method     the method name
+	 * @param paramTypes the parameter types
+	 * @return the corresponding {@link CtMethod}
+	 * @throws NotFoundException if the class or method cannot be found
+	 */
 	public static CtMethod getCtMethod(String classname, String method, Class<?>... paramTypes) throws NotFoundException {
 		return getCtMethod(getTargetClass(classname), method, paramTypes);
 	}
@@ -529,6 +622,12 @@ public class JavassistUtils {
 		return null;
 	}
 	
+	/**
+	 * Gets or creates the visible annotations attribute for the given field.
+	 *
+	 * @param field the target field
+	 * @return the annotations attribute (never {@code null})
+	 */
 	public static AnnotationsAttribute getFieldAnnotationsAttribute(final CtField field) {
 		FieldInfo fieldInfo = field.getFieldInfo();
 		AnnotationsAttribute attribute = (AnnotationsAttribute) fieldInfo.getAttribute(AnnotationsAttribute.visibleTag);
@@ -602,6 +701,13 @@ public class JavassistUtils {
 		return paramNames;
 	}
 	
+	/**
+	 * Gets the parameter names of the given reflected method.
+	 *
+	 * @param method the Java reflection method
+	 * @return the parameter name array, or {@code null} if the method cannot be resolved
+	 * @throws NotFoundException if the method's local variable info is unavailable
+	 */
 	public static String[] getMethodParamNames(Method method) throws NotFoundException {
 		CtMethod cm = getCtMethod(method);
 		if (cm != null) {
@@ -610,10 +716,27 @@ public class JavassistUtils {
 		return null;
 	}
 	
+	/**
+	 * Gets the parameter names of the specified method by class name and method name.
+	 *
+	 * @param classname the fully-qualified class name
+	 * @param method    the method name
+	 * @return the parameter name array
+	 * @throws NotFoundException if the class or method cannot be found
+	 */
 	public static String[] getMethodParamNames(String classname, String method) throws NotFoundException {
 		return getMethodParamNames(getTargetClass(classname), method);
 	}
 	
+	/**
+	 * Gets the parameter names of the specified method by class name, method name, and parameter types.
+	 *
+	 * @param classname  the fully-qualified class name
+	 * @param method     the method name
+	 * @param paramTypes the parameter types
+	 * @return the parameter name array
+	 * @throws NotFoundException if the class or method cannot be found
+	 */
 	public static String[] getMethodParamNames(String classname, String method, Class<?>... paramTypes)
 			throws NotFoundException {
 		return getMethodParamNames(getTargetClass(classname), method, paramTypes);
@@ -621,6 +744,12 @@ public class JavassistUtils {
 	
 	
 	
+	/**
+	 * Gets or creates the visible parameter annotations attribute for the given method.
+	 *
+	 * @param ctMethod the target method
+	 * @return the parameter annotations attribute (never {@code null})
+	 */
 	public static ParameterAnnotationsAttribute getParameterAnnotationsAttribute(final CtMethod ctMethod) {
 		MethodInfo methodInfo = ctMethod.getMethodInfo();
 		ParameterAnnotationsAttribute attribute = (ParameterAnnotationsAttribute) methodInfo.getAttribute(ParameterAnnotationsAttribute.visibleTag);
@@ -630,6 +759,12 @@ public class JavassistUtils {
 		return attribute;
 	}
 	
+	/**
+	 * Loads a class by its fully-qualified name, caching the result.
+	 *
+	 * @param className the fully-qualified class name
+	 * @return the loaded class, or {@code null} if the class cannot be found
+	 */
 	public static Class<?> getTargetClass(String className) {
 		Class<?> ret = null;
 		try {
@@ -649,6 +784,13 @@ public class JavassistUtils {
 		return ret;
 	}
 	
+	/**
+	 * Checks whether the given class declares a field with the specified name.
+	 *
+	 * @param ctclass   the target class
+	 * @param fieldName the field name to check
+	 * @return {@code true} if the field exists, {@code false} otherwise
+	 */
 	public static boolean hasField(final CtClass ctclass, final String fieldName) {
 		try {
 			// 检查字段是否已经定义
@@ -662,6 +804,14 @@ public class JavassistUtils {
 		}
 	}
 
+	/**
+	 * Checks whether the given class declares a method with the specified name and parameter types.
+	 *
+	 * @param ctclass    the target class
+	 * @param methodName the method name to check
+	 * @param paramTypes the parameter types (may be empty for no-arg methods)
+	 * @return {@code true} if the method exists, {@code false} otherwise
+	 */
 	public static boolean hasMethod(final CtClass ctclass, final String methodName, CtClass... paramTypes) {
 		try {
 			// 有参方法

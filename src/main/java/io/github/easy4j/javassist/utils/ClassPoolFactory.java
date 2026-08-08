@@ -25,10 +25,27 @@ import javassist.ClassPath;
 import javassist.ClassPool;
 import javassist.LoaderClassPath;
 
+/**
+ * Factory for creating and caching Javassist {@link ClassPool} instances.
+ *
+ * <p>Provides multiple factory methods for obtaining a {@link ClassPool} pre-configured
+ * with the appropriate class paths, including the thread context class loader and
+ * the class loader of this library.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see javassist.ClassPool
+ * @see javassist.ClassPath
+ */
 public class ClassPoolFactory {
 
 	private static ConcurrentHashMap<ClassLoader, ClassPool> CLASS_POOL_MAP = new ConcurrentHashMap<ClassLoader, ClassPool>();
 
+	/**
+	 * Returns a default {@link ClassPool} with the library's own class path inserted.
+	 *
+	 * @return a default ClassPool instance
+	 */
 	public static ClassPool getDefaultPool() {
 		ClassPool pool = ClassPool.getDefault();
 		/**
@@ -94,6 +111,12 @@ public class ClassPoolFactory {
 		return pool;
 	}
 	
+	/**
+	 * Creates a {@link ClassPool} that includes class paths discovered from
+	 * {@code META-INF/MANIFEST.MF} resources.
+	 *
+	 * @return a ClassPool with manifest-based class paths
+	 */
 	public static ClassPool getClassPoolForManifest() {
 
 		ClassPool pool = new ClassPool(true);
@@ -112,6 +135,12 @@ public class ClassPoolFactory {
 		
 		
 
+	/**
+	 * Creates a {@link ClassPool} backed by the current thread's context class loader
+	 * and the library's own class loader.
+	 *
+	 * @return a ClassPool for the current context
+	 */
 	public static ClassPool getClassPoolForCurrentContextClassLoader() {
 		
 		ClassPool pool = new ClassPool(true);
