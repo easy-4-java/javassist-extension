@@ -18,8 +18,18 @@ package io.github.easy4j.javassist.bytecode;
 import java.util.ArrayList;
 import java.util.List;
 
-//a quick and dirty method signature parser
-//see http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3.4
+/**
+ * Parser for JVM method signatures as defined in the Java Virtual Machine Specification.
+ *
+ * <p>Parses generic method signatures into their constituent parts: type parameters,
+ * parameter types, return type, and exception types. Used internally for signature
+ * manipulation during interface simplification.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see <a href="http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.3.4">
+ *      JVM Spec 4.3.4: Method Descriptors</a>
+ */
 public class MethodSignature {
 
 	public String returnType;

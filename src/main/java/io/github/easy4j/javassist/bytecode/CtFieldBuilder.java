@@ -25,6 +25,17 @@ import javassist.CtField;
 import javassist.Modifier;
 import javassist.NotFoundException;
 
+/**
+ * Builder for creating {@link CtField} instances within a target class.
+ *
+ * <p>If the field already exists in the declaring class, the existing field is returned.
+ * Otherwise, a new protected field is created with the specified type, name, and optional
+ * default value.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see javassist.CtField
+ */
 public class CtFieldBuilder implements Builder<CtField>{
 
 	private CtField field;

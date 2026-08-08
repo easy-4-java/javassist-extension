@@ -33,15 +33,27 @@ import javassist.bytecode.annotation.ShortMemberValue;
 import javassist.bytecode.annotation.StringMemberValue;
 
 /**
- * Comment
+ * Visitor that creates new default-valued {@link MemberValue} instances of the same
+ * type as the visited node.
+ *
+ * <p>Used during annotation cloning to produce fresh member value instances backed
+ * by the target constant pool.
+ *
  * @author <a href="mailto:bill@jboss.org">Bill Burke</a>
- * @version $Revision: 37406 $
- **/
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see javassist.bytecode.annotation.MemberValueVisitor
+ */
 public class MemberValueCreationVisitor implements MemberValueVisitor {
 	
 	public MemberValue value;
 	private ConstPool cp;
 
+	/**
+	 * Creates a new visitor with the specified constant pool.
+	 *
+	 * @param cp the constant pool for newly created member values
+	 */
 	public MemberValueCreationVisitor(ConstPool cp) {
 		this.cp = cp;
 	}

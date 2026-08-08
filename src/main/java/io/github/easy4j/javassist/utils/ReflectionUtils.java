@@ -27,7 +27,12 @@ import org.slf4j.LoggerFactory;
  * Simple utility class for working with the reflection API and handling
  * reflection exceptions.
  *
- * <p>Only intended for internal use.
+ * <p>Provides methods to search for {@link Method} objects on a class and its
+ * superclasses by name and parameter types. Only intended for internal use.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see java.lang.reflect.Method
  */
 public abstract class ReflectionUtils {
 	

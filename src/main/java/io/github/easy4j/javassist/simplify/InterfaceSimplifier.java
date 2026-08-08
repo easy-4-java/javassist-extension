@@ -43,12 +43,19 @@ import javassist.bytecode.annotation.Annotation;
 import javassist.bytecode.annotation.ClassMemberValue;
 
 /**
- * 
- * The scripts can use simplified interfaces that omit the first "InvocationHandler"
- * argument to most methods . This helper class prepares
- * such simplified interfaces.
+ * Creates simplified versions of interfaces that omit the leading
+ * {@code InvocationHandler} parameter from method signatures.
+ *
+ * <p>The original interface's methods are expected to have an {@link java.lang.reflect.InvocationHandler}
+ * as their first parameter. The simplified version strips this parameter and annotates
+ * the simplified methods with {@link SimplifiedMethod} and the class with {@link SimplifiedClass}.
+ *
  * @author Greg Hinkle
  * @author Lukas Krejci
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SimplifiedMethod
+ * @see SimplifiedClass
  */
 public class InterfaceSimplifier {
 

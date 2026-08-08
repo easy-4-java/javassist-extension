@@ -34,7 +34,17 @@ import io.github.easy4j.javassist.utils.ClassHelper;
 import io.github.easy4j.javassist.utils.ReflectUtils;
 
 /**
- * Wrapper.
+ * Abstract base class that wraps a target class to provide uniform access to its
+ * properties and methods via bytecode-generated implementations.
+ *
+ * <p>Generated wrapper classes allow reading/writing bean properties and invoking
+ * methods by name, bypassing direct reflection overhead. The wrapper is created
+ * once per class and cached for reuse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see ClassGenerator
+ * @see NoSuchPropertyException
  */
 public abstract class Wrapper {
 

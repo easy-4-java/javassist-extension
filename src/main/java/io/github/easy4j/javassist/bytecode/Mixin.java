@@ -27,7 +27,16 @@ import io.github.easy4j.javassist.utils.ClassHelper;
 import io.github.easy4j.javassist.utils.ReflectUtils;
 
 /**
- * Mixin
+ * Abstract base class for creating mixin-style compositions of multiple interfaces
+ * backed by delegate instances.
+ *
+ * <p>Uses Javassist bytecode generation to dynamically create a class that implements
+ * all specified interfaces by delegating to the provided delegate objects.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see ClassGenerator
+ * @see Mixin.MixinAware
  */
 public abstract class Mixin {
     private static final String PACKAGE_NAME = Mixin.class.getPackage().getName();
