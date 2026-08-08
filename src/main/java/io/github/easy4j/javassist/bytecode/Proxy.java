@@ -34,9 +34,17 @@ import io.github.easy4j.javassist.utils.ClassHelper;
 import io.github.easy4j.javassist.utils.ReflectUtils;
 
 /**
- * Proxy.
+ * Abstract base class for Javassist-generated interface proxies.
+ *
+ * <p>Creates dynamic proxy classes that implement one or more interfaces and delegate
+ * all method calls to an {@link InvocationHandler}. Proxies are cached per class loader
+ * and interface combination for efficiency.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see ClassGenerator
+ * @see InvocationHandler
  */
-
 public abstract class Proxy {
 	
 	public static final InvocationHandler RETURN_NULL_INVOKER = new InvocationHandler() {

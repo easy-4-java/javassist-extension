@@ -59,9 +59,17 @@ import javassist.bytecode.annotation.ShortMemberValue;
 import javassist.bytecode.annotation.StringMemberValue;
 
 /**
- * Created a Javassist Annotation from a java one
- * 
+ * Builder for creating Javassist {@link Annotation} instances from Java annotations
+ * or by programmatic construction.
+ *
+ * <p>Supports fluent method chaining to add typed member values (boolean, byte, char,
+ * class, double, enum, float, integer, long, short, string, annotation, and their
+ * array variants) to the annotation being built.
+ *
  * @author stuart
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see javassist.bytecode.annotation.Annotation
  */
 @SuppressWarnings("rawtypes")
 public class CtAnnotationBuilder implements Builder<Annotation> {

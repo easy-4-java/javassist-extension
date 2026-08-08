@@ -32,12 +32,29 @@ import javassist.bytecode.annotation.MemberValueVisitor;
 import javassist.bytecode.annotation.ShortMemberValue;
 import javassist.bytecode.annotation.StringMemberValue;
 
+/**
+ * Visitor that copies a {@link MemberValue} into an array at a specified index,
+ * using the target constant pool for the copy.
+ *
+ * <p>Handles all member value types including nested arrays and annotations.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see javassist.bytecode.annotation.MemberValueVisitor
+ */
 public class ArrayIndexAssigningVisitor implements MemberValueVisitor {
 	
 	private MemberValue[] array;
 	private int index;
 	private ConstPool constPool;
 
+	/**
+	 * Creates a new visitor that assigns to the specified index of the given array.
+	 *
+	 * @param array      the target member value array
+	 * @param index      the index to assign to
+	 * @param constPool  the constant pool for newly created member values
+	 */
 	public ArrayIndexAssigningVisitor(MemberValue[] array, int index, ConstPool constPool) {
 		this.array = array;
 		this.index = index;
