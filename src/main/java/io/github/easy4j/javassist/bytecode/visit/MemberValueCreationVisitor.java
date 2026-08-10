@@ -39,7 +39,7 @@ import javassist.bytecode.annotation.StringMemberValue;
  * <p>Used during annotation cloning to produce fresh member value instances backed
  * by the target constant pool.
  *
- * @author <a href="mailto:bill@jboss.org">Bill Burke</a>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see javassist.bytecode.annotation.MemberValueVisitor
