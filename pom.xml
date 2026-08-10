@@ -343,13 +343,16 @@
             <activation>
                 <jdk>[1.8,)</jdk>
             </activation>
-            <properties>
-                <maven-central-publishing-plugin.version>0.11.0</maven-central-publishing-plugin.version>
-                <maven.test.skip>true</maven.test.skip>
-                <lombok.version>1.18.46</lombok.version>
-                <additionalparam>-Xdoclint:none</additionalparam>
-                <maven-jacoco-plugin.version>0.8.15</maven-jacoco-plugin.version>
-            </properties>
+    <properties>
+        <!-- Dependency versions -->
+        <additionalparam>-Xdoclint:none</additionalparam>
+        <lombok.version>1.18.46</lombok.version>
+        <maven.test.skip>true</maven.test.skip>
+        <!-- Maven Plugin versions -->
+        <maven-central-publishing-plugin.version>0.11.0</maven-central-publishing-plugin.version>
+        <maven-jacoco-plugin.version>0.8.15</maven-jacoco-plugin.version>
+    </properties>
+
         </profile>
         <!-- 发布到 Maven Central Portal：mvn -Prelease deploy（GPG 签名 + 源码 + Javadoc + Central 发布插件） -->
 
@@ -487,12 +490,18 @@
 
     <!-- 版本属性定义：Java 版本、依赖版本与 Maven 插件版本统一管理 -->
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <maven.version>3.0</maven.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.version>3.0</maven.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Dependency versions -->
+        <commons-lang3.version>3.20.0</commons-lang3.version>
+        <javassist.version>3.30.2-GA</javassist.version>
+        <junit-jupiter.version>5.11.4</junit-jupiter.version>
+        <junit.version>4.13.2</junit.version>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <slf4j.version>2.0.18</slf4j.version>
         <!-- Maven Plugin versions -->
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
@@ -503,18 +512,13 @@
         <maven-install-plugin.version>3.1.4</maven-install-plugin.version>
         <maven-jar-plugin.version>3.5.0</maven-jar-plugin.version>
         <maven-javadoc-plugin.version>3.11.2</maven-javadoc-plugin.version>
+        <maven-nexus-staging-plugin.version>1.7.0</maven-nexus-staging-plugin.version>
         <maven-release-plugin.version>3.3.1</maven-release-plugin.version>
         <maven-resources-plugin.version>3.5.0</maven-resources-plugin.version>
-        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
         <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
-        <maven-nexus-staging-plugin.version>1.7.0</maven-nexus-staging-plugin.version>
-        <commons-lang3.version>3.20.0</commons-lang3.version>
-        <javassist.version>3.30.2-GA</javassist.version>
-        <!-- Dependency versions -->
-        <junit.version>4.13.2</junit.version>
-        <junit-jupiter.version>5.11.4</junit-jupiter.version>
-        <slf4j.version>2.0.18</slf4j.version>
+        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
     </properties>
+
 
     <!-- 依赖版本统一管理（dependencyManagement） -->
     <dependencyManagement>
