@@ -32,7 +32,7 @@ import javassist.NotFoundException;
  * Otherwise, a new protected field is created with the specified type, name, and optional
  * default value.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see javassist.CtField
  */

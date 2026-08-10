@@ -67,7 +67,7 @@ import javassist.bytecode.annotation.StringMemberValue;
  * array variants) to the annotation being built.
  *
  * @author stuart
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see javassist.bytecode.annotation.Annotation
  */

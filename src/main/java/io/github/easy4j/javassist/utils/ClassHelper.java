@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
  * Utility class for class loading operations including thread context class loader
  * resolution, primitive type handling, and classpath URL discovery from manifests.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see Class#forName(String, boolean, ClassLoader)
  */

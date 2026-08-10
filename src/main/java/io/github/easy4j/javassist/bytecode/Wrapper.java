@@ -41,7 +41,7 @@ import io.github.easy4j.javassist.utils.ReflectUtils;
  * methods by name, bypassing direct reflection overhead. The wrapper is created
  * once per class and cached for reuse.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see ClassGenerator
  * @see NoSuchPropertyException

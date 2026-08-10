@@ -33,7 +33,7 @@ import io.github.easy4j.javassist.utils.ReflectUtils;
  * <p>Uses Javassist bytecode generation to dynamically create a class that implements
  * all specified interfaces by delegating to the provided delegate objects.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see ClassGenerator
  * @see Mixin.MixinAware

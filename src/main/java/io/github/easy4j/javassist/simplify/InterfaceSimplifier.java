@@ -52,7 +52,7 @@ import javassist.bytecode.annotation.ClassMemberValue;
  *
  * @author Greg Hinkle
  * @author Lukas Krejci
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see SimplifiedMethod
  * @see SimplifiedClass

@@ -63,7 +63,7 @@ import javassist.bytecode.annotation.StringMemberValue;
  * annotations, member values, and for resolving {@link CtClass}, {@link CtMethod},
  * and method parameter names from Java classes or reflection objects.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see javassist.CtClass
  * @see javassist.bytecode.annotation.Annotation

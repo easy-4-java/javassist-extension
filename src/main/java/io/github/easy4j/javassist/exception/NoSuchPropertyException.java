@@ -19,7 +19,7 @@ package io.github.easy4j.javassist.exception;
 /**
  * Exception thrown when a requested property is not found on a wrapped class.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see io.github.easy4j.javassist.bytecode.Wrapper
  */

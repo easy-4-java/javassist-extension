@@ -50,7 +50,7 @@ import javassist.NotFoundException;
  * <p>Supports adding interfaces, fields, methods, and constructors to a new class at runtime.
  * Generated classes are tagged with the {@link DC} marker interface for identification.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see javassist.ClassPool
  */

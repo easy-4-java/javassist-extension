@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
  * Annotation applied to a simplified interface class to record the original
  * interface it was derived from.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see InterfaceSimplifier
  */

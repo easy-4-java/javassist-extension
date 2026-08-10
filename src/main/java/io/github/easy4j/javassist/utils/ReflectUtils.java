@@ -52,7 +52,7 @@ import javassist.NotFoundException;
  * <p>Provides methods for converting between JVM type descriptors and Java class names,
  * finding methods and constructors by signature, and inspecting bean properties.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see java.lang.reflect.Method
  * @see java.lang.reflect.Constructor

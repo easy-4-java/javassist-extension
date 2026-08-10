@@ -38,7 +38,7 @@ import javassist.bytecode.annotation.StringMemberValue;
  *
  * <p>Handles all member value types including nested arrays and annotations.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see javassist.bytecode.annotation.MemberValueVisitor
  */

@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
  * Marker annotation applied to methods in a simplified interface that had their
  * leading {@code InvocationHandler} parameter removed by {@link InterfaceSimplifier}.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see InterfaceSimplifier
  */

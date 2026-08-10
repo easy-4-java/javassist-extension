@@ -30,7 +30,7 @@ import javassist.util.proxy.ProxyFactory;
  * {@link javassist.util.proxy.MethodHandler}, enabling AOP-style cross-cutting concerns
  * such as transaction management and logging.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see javassist.util.proxy.ProxyFactory
  * @see javassist.util.proxy.MethodHandler

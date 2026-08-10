@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
  * <p>Provides methods to search for {@link Method} objects on a class and its
  * superclasses by name and parameter types. Only intended for internal use.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see java.lang.reflect.Method
  */
