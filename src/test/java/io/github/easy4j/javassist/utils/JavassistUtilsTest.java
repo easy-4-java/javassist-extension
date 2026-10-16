@@ -276,17 +276,16 @@ public class JavassistUtilsTest {
 
     @Test
     public void shouldGetMethodParamNames() throws Exception {
-        String[] names = JavassistUtils.getMethodParamNames("java.lang.String", "substring");
-        assertNotNull(names);
+        String[] names = JavassistUtils.getMethodParamNames("io.github.easy4j.javassist.entity.Person", "talk");
+        assertArrayEquals(new String[]{"words"}, names);
     }
 
     @Test
     public void shouldGetMethodParamNamesFromCtMethod() throws Exception {
-        CtClass cc = pool.get("java.lang.String");
-        CtMethod cm = cc.getDeclaredMethod("substring", new CtClass[]{CtClass.intType});
+        CtClass cc = pool.get("io.github.easy4j.javassist.entity.Person");
+        CtMethod cm = cc.getDeclaredMethod("talk", new CtClass[]{pool.get("java.lang.String")});
         String[] names = JavassistUtils.getMethodParamNames(cm);
-        assertNotNull(names);
-        assertEquals(1, names.length);
+        assertArrayEquals(new String[]{"words"}, names);
     }
 
     @Test
