@@ -190,7 +190,7 @@
                         <skip>false</skip>
                         <skipTests>false</skipTests>
                         <forkMode>once</forkMode>
-                        <argLine>-Xmx1024m
+                        <argLine>-Xmx1024m --add-opens java.base/java.lang=ALL-UNNAMED
 								-Dfile.encoding=UTF-8</argLine>
                         <additionalClasspathElements>
                             <additionalClasspathElement>${basedir}/target/test-classes</additionalClasspathElement>
@@ -341,7 +341,7 @@
         <!-- Dependency versions -->
         <additionalparam>-Xdoclint:none</additionalparam>
         <lombok.version>1.18.46</lombok.version>
-        <maven.test.skip>true</maven.test.skip>
+        <maven.test.skip>false</maven.test.skip>
         <!-- Maven Plugin versions -->
         <maven-central-publishing-plugin.version>0.11.0</maven-central-publishing-plugin.version>
         <maven-jacoco-plugin.version>0.8.15</maven-jacoco-plugin.version>
@@ -492,6 +492,7 @@
         <!-- Dependency versions -->
         <commons-lang3.version>3.20.0</commons-lang3.version>
         <javassist.version>3.30.2-GA</javassist.version>
+        <javax-jws-api.version>1.1</javax-jws-api.version>
         <junit-jupiter.version>6.1.0</junit-jupiter.version>
         <junit.version>4.13.2</junit.version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -562,6 +563,13 @@
 
     <!-- 项目依赖（dependencies） -->
     <dependencies>
+        <!-- JDK 17 no longer bundles the Javax JAX-WS annotations used by test fixtures. -->
+        <dependency>
+            <groupId>javax.jws</groupId>
+            <artifactId>javax.jws-api</artifactId>
+            <version>${javax-jws-api.version}</version>
+            <scope>test</scope>
+        </dependency>
         <!-- For Junit -->
         <dependency>
             <groupId>junit</groupId>
