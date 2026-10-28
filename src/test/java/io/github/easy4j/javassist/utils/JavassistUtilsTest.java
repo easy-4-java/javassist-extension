@@ -289,6 +289,24 @@ public class JavassistUtilsTest {
     }
 
     @Test
+    public void shouldGetMethodParamNamesFromLocalFixture() throws Exception {
+        CtClass cc = pool.get(JavassistUtilsTest.class.getName());
+        CtMethod cm = cc.getDeclaredMethod("parameterNameFixture", new CtClass[]{pool.get("java.lang.String")});
+        String[] names = JavassistUtils.getMethodParamNames(cm);
+        assertArrayEquals(new String[]{"value"}, names);
+    }
+
+    @Test
+    public void shouldGetMethodParamNamesByClassFromLocalFixture() throws Exception {
+        String[] names = JavassistUtils.getMethodParamNames(JavassistUtilsTest.class, "parameterNameFixture");
+        assertArrayEquals(new String[]{"value"}, names);
+    }
+
+    private String parameterNameFixture(String value) {
+        return value;
+    }
+
+    @Test
     public void shouldReturnNullWhenGetMethodParamNamesForMethodObject() throws Exception {
         java.lang.reflect.Method m = Object.class.getMethod("getClass");
         // getClass has no local variable info, so it may return null or throw
