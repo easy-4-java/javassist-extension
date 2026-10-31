@@ -576,12 +576,6 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>javax.jws</groupId>
-            <artifactId>javax.jws-api</artifactId>
-            <version>${javax-jws-api.version}</version>
-            <scope>test</scope>
-        </dependency>
         <!-- For Slf4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
